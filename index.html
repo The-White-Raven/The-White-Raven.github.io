@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="ru" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Smart Network Group разрабатывает сайты, приложения, операционные системы и программное обеспечение полного цикла.">
+  <meta name="theme-color" content="#070806">
+  <title>Smart Network Group — Digital Engineering</title>
+  <link rel="preload" as="image" href="assets/hero-video-poster.jpg" fetchpriority="high">
+  <link rel="stylesheet" href="globals.css">
+  <script>document.documentElement.classList.replace('no-js', 'js')</script>
+</head>
+<body>
+  <main>
+    <div class="scroll-progress" aria-hidden="true"></div>
+    <div class="cursor-aura" aria-hidden="true"></div>
+
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Smart Network Group — на главную">
+        <img class="brand-logo" src="assets/sng-logo-transparent.png" alt="SNG — Smart Network Group">
+      </a>
+      <nav class="main-nav" aria-label="Основная навигация">
+        <a href="#expertise">Возможности</a><a href="#approach">Подход</a><a href="#contact">Контакты</a>
+      </nav>
+      <a class="header-cta" href="#contact">Начать проект <span aria-hidden="true">↗</span></a>
+    </header>
+
+    <section class="hero" id="top">
+      <div class="hero-media" aria-hidden="true">
+        <img class="hero-media__fallback" src="assets/hero-video-poster.jpg" alt="" decoding="async" fetchpriority="high">
+        <video class="hero-media__video" autoplay muted playsinline preload="auto" poster="assets/hero-video-poster.jpg" tabindex="-1" disablepictureinpicture disableremoteplayback>
+          <source src="assets/hero-background.mp4" type="video/mp4">
+        </video>
+        <img class="hero-media__final" src="assets/hero-video-final.jpg" alt="" decoding="async">
+      </div>
+      <div class="hero-media-overlay" aria-hidden="true"></div>
+      <canvas class="terrain-canvas" id="terrainCanvas" aria-hidden="true"></canvas>
+      <div class="hero-grid" aria-hidden="true"></div>
+      <div class="hero-noise" aria-hidden="true"></div>
+      <div class="hero-glow hero-glow--one" aria-hidden="true"></div>
+      <div class="hero-glow hero-glow--two" aria-hidden="true"></div>
+      <div class="hero-copy" data-parallax="-0.045">
+        <p class="eyebrow"><span></span> IT-компания полного цикла</p>
+        <h1><span>Проектируем</span><span class="accent-line">цифровое завтра.</span></h1>
+        <p class="hero-lead">Сайты, приложения, операционные системы и сложное программное обеспечение — от архитектуры до запуска.</p>
+        <div class="hero-actions">
+          <a class="button button--primary" href="#contact" data-magnetic>Обсудить задачу <span aria-hidden="true">↗</span></a>
+          <a class="text-link" href="#expertise">Смотреть возможности <span aria-hidden="true">↓</span></a>
+        </div>
+      </div>
+
+      <div class="hero-visual" tabindex="0" role="button" aria-pressed="false" aria-label="Интерактивная визуализация цифрового рельефа. Двигайте курсором или нажмите, чтобы активировать импульс.">
+        <span class="hotspot hotspot--tl"></span><span class="hotspot hotspot--tr"></span>
+        <span class="hotspot hotspot--bl"></span><span class="hotspot hotspot--br"></span>
+        <div class="visual-label visual-label--top"><i></i> SYSTEM ONLINE</div>
+        <div class="visual-label visual-label--bottom">MOVE / TAP TO EXPLORE</div>
+        <div class="status-card status-card--left"><span>UPTIME TARGET</span><b>99.9%</b><i></i></div>
+        <div class="status-card status-card--right"><span>STACK</span><b>FULL CYCLE</b><i></i></div>
+      </div>
+      <div class="hero-index" aria-hidden="true"><span>01</span><i></i><small>SCROLL TO EXPLORE</small></div>
+    </section>
+
+    <div class="capability-rail" aria-label="Направления работы">
+      <div class="capability-rail__track">
+        <div class="capability-rail__group">
+          <span>WEB DEVELOPMENT</span><i>✦</i><span>MOBILE APPS</span><i>✦</i>
+          <span>OPERATING SYSTEMS</span><i>✦</i><span>DATABASES</span><i>✦</i>
+          <span>CLOUD &amp; DEVOPS</span><i>✦</i><span>AI &amp; AUTOMATION</span><i>✦</i>
+        </div>
+        <div class="capability-rail__group" aria-hidden="true">
+          <span>WEB DEVELOPMENT</span><i>✦</i><span>MOBILE APPS</span><i>✦</i>
+          <span>OPERATING SYSTEMS</span><i>✦</i><span>DATABASES</span><i>✦</i>
+          <span>CLOUD &amp; DEVOPS</span><i>✦</i><span>AI &amp; AUTOMATION</span><i>✦</i>
+        </div>
+      </div>
+    </div>
+
+    <section class="expertise section" id="expertise">
+      <div class="section-heading reveal">
+        <p class="kicker">02 / ВОЗМОЖНОСТИ</p>
+        <h2>Одна команда.<br><em>Любая сложность.</em></h2>
+        <p>Собираем инженеров, дизайнеров и аналитиков вокруг результата — не вокруг количества часов в смете.</p>
+      </div>
+      <div class="service-grid">
+        <a class="service-card service-card--wide reveal" href="https://t.me/Mirage_Manager22" target="_blank" rel="noopener noreferrer" aria-label="Сайты и веб-платформы — написать менеджеру в Telegram">
+          <div class="service-number">01</div>
+          <div><p class="service-tag">DIGITAL PRODUCTS</p><h3>Сайты и<br>веб-платформы</h3><p>Корпоративные сайты, e-commerce, SaaS и высоконагруженные сервисы.</p></div>
+          <span class="card-arrow"><span aria-hidden="true">↗</span></span>
+          <div class="card-code" aria-hidden="true"><span>&lt;build&gt;</span><span>scale: ∞;</span><span>ship();</span></div>
+        </a>
+        <a class="service-card service-card--violet reveal" href="https://t.me/Mirage_Manager22" target="_blank" rel="noopener noreferrer" aria-label="Приложения iOS и Android — написать менеджеру в Telegram">
+          <div class="service-number">02</div>
+          <div><p class="service-tag">MOBILE FIRST</p><h3>Приложения<br>iOS / Android</h3><p>Нативные и кроссплатформенные продукты с цельным UX.</p></div>
+          <span class="card-arrow"><span aria-hidden="true">↗</span></span>
+        </a>
+        <a class="service-card service-card--dark reveal" href="https://t.me/Mirage_Manager22" target="_blank" rel="noopener noreferrer" aria-label="Системное программное обеспечение и операционные системы — написать менеджеру в Telegram">
+          <div class="service-number">03</div>
+          <div><p class="service-tag">DEEP TECH</p><h3>Системное ПО<br>и OS</h3><p>Архитектура, ядро, драйверы и безопасные среды под задачи бизнеса.</p></div>
+          <span class="card-arrow"><span aria-hidden="true">↗</span></span>
+        </a>
+        <a class="service-card service-card--data reveal" href="https://t.me/Mirage_Manager22" target="_blank" rel="noopener noreferrer" aria-label="Базы данных и аналитика — написать менеджеру в Telegram">
+          <div class="service-number">04</div>
+          <div class="data-visual" aria-hidden="true"><span>01</span><i></i><span>10</span><i></i><span>11</span><i></i><span>01</span></div>
+          <div><p class="service-tag">DATA ENGINEERING</p><h3>Базы данных<br>и аналитика</h3><p>От модели данных до отказоустойчивых хранилищ и понятных дашбордов.</p></div>
+          <span class="card-arrow"><span aria-hidden="true">↗</span></span>
+        </a>
+        <a class="service-card service-card--paper reveal" href="https://t.me/Mirage_Manager22" target="_blank" rel="noopener noreferrer" aria-label="Cloud, DevOps и безопасность — написать менеджеру в Telegram">
+          <div class="service-number">05</div>
+          <div><p class="service-tag">INFRASTRUCTURE</p><h3>Cloud, DevOps<br>и безопасность</h3><p>Инфраструктура, CI/CD, мониторинг и защита критичных контуров.</p></div>
+          <span class="card-arrow"><span aria-hidden="true">↗</span></span>
+        </a>
+        <a class="service-card service-card--orange reveal" href="https://t.me/Mirage_Manager22" target="_blank" rel="noopener noreferrer" aria-label="Искусственный интеллект и автоматизация — написать менеджеру в Telegram">
+          <div class="service-number">06</div>
+          <div><p class="service-tag">INTELLIGENCE</p><h3>AI и<br>автоматизация</h3><p>Агенты, компьютерное зрение и процессы, которые работают без рутины.</p></div>
+          <span class="card-arrow"><span aria-hidden="true">↗</span></span>
+        </a>
+      </div>
+    </section>
+
+    <section class="process" id="approach">
+      <div class="process-intro section reveal">
+        <p class="kicker">03 / КАК МЫ РАБОТАЕМ</p>
+        <h2>Не просто пишем код.<br><em>Создаём систему.</em></h2>
+        <p class="process-intro-copy">Листайте дальше — каждый этап становится частью одной инженерной линии: от вопроса «зачем?» до работающего продукта.</p>
+      </div>
+      <div class="process-project reveal" data-road-project>
+        <div class="process-project__meta">
+          <span><b>PROJECT 01</b> / SNG DIGITAL ROUTE</span>
+          <span>МИНИ-ИГРА О СОЗДАНИИ ПРОДУКТА</span>
+        </div>
+        <div class="process-project__stage">
+          <iframe src="road-dreams.html" title="Мини-игра SNG — Цифровой маршрут" loading="lazy" tabindex="-1" allow="autoplay; fullscreen"></iframe>
+          <div class="process-project__hint" aria-hidden="true"><span>Запустите мини-игру и проведите продукт через пять этапов</span></div>
+          <button class="process-project__toggle" type="button" data-road-toggle aria-pressed="false">
+            <span>Запустить мини-игру</span><i aria-hidden="true">↗</i>
+          </button>
+        </div>
+      </div>
+      <div class="process-story"><div class="process-pin">
+        <div class="process-meta"><span>VERTICAL INPUT</span><i></i><b>HORIZONTAL THINKING</b></div>
+        <div class="process-track">
+          <article class="process-card process-card--one"><p>01 / DISCOVER</p><div class="process-symbol" aria-hidden="true">?</div><h3>Понимаем<br>задачу</h3><span>Исследование · Цели · Риски · Метрики</span></article>
+          <article class="process-card process-card--two"><p>02 / DESIGN</p><div class="process-symbol" aria-hidden="true">◎</div><h3>Проектируем<br>архитектуру</h3><span>UX · Прототип · Системный дизайн · Roadmap</span></article>
+          <article class="process-card process-card--three"><p>03 / ENGINEER</p><div class="process-symbol" aria-hidden="true">⌘</div><h3>Собираем<br>продукт</h3><span>Код · Тесты · Интеграции · Инфраструктура</span></article>
+          <article class="process-card process-card--four"><p>04 / SCALE</p><div class="process-symbol" aria-hidden="true">↗</div><h3>Запускаем<br>и растим</h3><span>Релиз · Наблюдаемость · Поддержка · Развитие</span></article>
+        </div>
+      </div></div>
+    </section>
+
+    <section class="proof section" id="proof">
+      <div class="proof-head reveal">
+        <p class="kicker">04 / ДОКАЗАТЕЛЬСТВА</p>
+        <h2>Результаты важнее<br><em>громких логотипов.</em></h2>
+        <p>Показываем измеримый масштаб работы: готовые продукты, географию, ценность проектов и накопленный инженерный опыт.</p>
+      </div>
+      <dl class="metrics reveal">
+        <div><dt><strong>154</strong></dt><dd>реализованных продукта</dd></div>
+        <div><dt><strong>3</strong></dt><dd>страны присутствия</dd></div>
+        <div><dt><strong>₽12,5</strong><sup>млн</sup></dt><dd>ценность проектов</dd></div>
+        <div><dt><strong>4</strong><sup>года</sup></dt><dd>в инженерии</dd></div>
+      </dl>
+      <section class="order-system reveal" aria-labelledby="order-flow-title">
+        <div class="order-system__head">
+          <div>
+            <p class="order-system__eyebrow"><span></span> ORDER FLOW / 06 STEPS</p>
+            <h3 id="order-flow-title">От получения ТЗ<br><em>до готовой работы.</em></h3>
+          </div>
+          <div class="order-system__note">
+            <span>ПРОЗРАЧНЫЙ ПРОЦЕСС</span>
+            <strong>Шесть понятных<br>точек маршрута</strong>
+            <p>Держим вас в курсе: показываем прогресс, фиксируем решения и всегда обозначаем следующий шаг.</p>
+          </div>
+        </div>
+        <ol class="order-flow">
+          <li class="order-flow__card order-flow__card--paper">
+            <div class="order-flow__top"><span>01</span><small>INPUT</small></div><i aria-hidden="true">↘</i>
+            <div><h4>Получаем ТЗ</h4><p>Сверяем задачу, цели и ожидания — переводим идею на инженерный язык.</p></div>
+          </li>
+          <li class="order-flow__card order-flow__card--violet">
+            <div class="order-flow__top"><span>02</span><small>ESTIMATE</small></div><i aria-hidden="true">◎</i>
+            <div><h4>Оцениваем</h4><p>Определяем объём, сроки, бюджет и оптимальный состав команды.</p></div>
+          </li>
+          <li class="order-flow__card order-flow__card--acid">
+            <div class="order-flow__top"><span>03</span><small>DESIGN</small></div><i aria-hidden="true">⌁</i>
+            <div><h4>Проектируем</h4><p>Собираем логику, прототип, архитектуру и визуальную систему.</p></div>
+          </li>
+          <li class="order-flow__card order-flow__card--orange">
+            <div class="order-flow__top"><span>04</span><small>BUILD</small></div><i aria-hidden="true">{ }</i>
+            <div><h4>Разрабатываем</h4><p>Создаём продукт итерациями и регулярно показываем живой результат.</p></div>
+          </li>
+          <li class="order-flow__card order-flow__card--mist">
+            <div class="order-flow__top"><span>05</span><small>QUALITY</small></div><i aria-hidden="true">✓</i>
+            <div><h4>Тестируем</h4><p>Проверяем сценарии, безопасность, скорость и устойчивость системы.</p></div>
+          </li>
+          <li class="order-flow__card order-flow__card--finish">
+            <div class="order-flow__top"><span>06</span><small>READY</small></div><i aria-hidden="true">↗</i>
+            <div><h4>Запускаем</h4><p>Передаём готовую работу, доступы и документацию. Остаёмся рядом.</p></div>
+          </li>
+        </ol>
+      </section>
+    </section>
+
+    <section class="stack section">
+      <div class="stack-copy reveal">
+        <p class="kicker">05 / ТЕХНОЛОГИИ</p><h2>Стек выбирает<br><em>задача.</em></h2>
+        <p>Не продаём модные инструменты. Подбираем технологию под нагрузку, безопасность и экономику продукта.</p>
+      </div>
+      <div class="stack-terminal reveal" aria-label="Технологический стек">
+        <div class="terminal-bar"><span>SNG_STACK.MATRIX</span><i></i><i></i><i></i></div>
+        <div class="terminal-line"><b>01</b><span>FRONTEND</span><em>React · Vue · Next · WebGL · HTML/CSS</em></div>
+        <div class="terminal-line"><b>02</b><span>BACKEND</span><em>Node · Go · Python · Java · .NET</em></div>
+        <div class="terminal-line"><b>03</b><span>MOBILE</span><em>Swift · Kotlin · Flutter · React Native</em></div>
+        <div class="terminal-line"><b>04</b><span>DATA</span><em>PostgreSQL · ClickHouse · Redis · Kafka</em></div>
+        <div class="terminal-line"><b>05</b><span>SYSTEM</span><em>C · C++ · Rust · Linux · Embedded</em></div>
+        <div class="terminal-line"><b>06</b><span>CLOUD</span><em>Docker · Kubernetes · Terraform · CI/CD</em></div>
+        <div class="terminal-command"><span>→</span> ready_to_build<span class="terminal-cursor">_</span></div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="contact-grid" aria-hidden="true"></div>
+      <p class="kicker">06 / НАЧАТЬ ПРОЕКТ</p>
+      <h2 class="reveal">Есть сложная задача?</h2>
+      <div class="contact-bottom reveal"><p><em>Именно такие</em><br>мы любим.</p><a class="contact-button" href="https://t.me/Mirage_Manager22" target="_blank" rel="noopener noreferrer" aria-label="Написать менеджеру Smart Network Group в Telegram" data-magnetic><span class="contact-button__label">Написать нам</span><span class="contact-button__arrow" aria-hidden="true">↗</span></a></div>
+    </section>
+
+    <footer class="site-footer">
+      <div class="footer-main">
+        <a class="footer-logo" href="#top" aria-label="Smart Network Group — наверх">
+          <img src="assets/sng-logo-transparent.png" alt="SNG — Smart Network Group">
+        </a>
+        <div class="footer-column">
+          <span>НАВИГАЦИЯ</span>
+          <nav aria-label="Навигация в подвале"><a href="#expertise">Возможности</a><a href="#approach">Подход</a><a href="#proof">Результаты</a><a href="#contact">Контакты</a></nav>
+        </div>
+        <div class="footer-column footer-contacts" aria-label="Контакты Smart Network Group">
+          <span>КОНТАКТЫ</span>
+          <a href="https://t.me/Mirage_Manager22" target="_blank" rel="noopener noreferrer">Telegram <i aria-hidden="true">↗</i></a>
+          <div class="footer-email-wrapper">
+            <span class="footer-email-text">contact.snggroup-21@yandex.com</span>
+            <button class="footer-email-copy" onclick="copyEmail()" aria-label="Скопировать email">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+            </button>
+            <span class="copy-tooltip" id="copyTooltip">Скопировано!</span>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 SMART NETWORK GROUP</span>
+        <span class="footer-status"><i aria-hidden="true"></i> ALL SYSTEMS OPERATIONAL</span>
+      </div>
+    </footer>
+  </main>
+  <script src="script.js" defer></script>
+  <script>
+    function copyEmail() {
+      const email = 'contact.snggroup-21@yandex.com';
+      navigator.clipboard.writeText(email).then(() => {
+        const tooltip = document.getElementById('copyTooltip');
+        tooltip.classList.add('show');
+        setTimeout(() => {
+          tooltip.classList.remove('show');
+        }, 2000);
+      }).catch(() => {
+        const input = document.createElement('input');
+        input.value = email;
+        document.body.appendChild(input);
+        input.select();
+        document.execCommand('copy');
+        document.body.removeChild(input);
+        const tooltip = document.getElementById('copyTooltip');
+        tooltip.classList.add('show');
+        setTimeout(() => {
+          tooltip.classList.remove('show');
+        }, 2000);
+      });
+    }
+  </script>
+</body>
+</html>

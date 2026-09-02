@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SNG — песочный интерактив</title>
+    <link rel="stylesheet" href="./sng-sand.css">
+
+  </head>
+    
+  <body>
+  <div id="app">
+	<img id="sngLogoSource" src="assets/sng-logo-transparent.png" alt="" hidden>
+	<canvas id="sand" aria-label="Интерактивная песочная модель логотипа SNG"></canvas>
+
+	<header class="topbar" aria-label="Панель интерактива SNG">
+		<div class="brand">
+			<span class="brand-mark">◈</span>
+			<span>SNG / Песочная система</span>
+		</div>
+
+		<div class="top-actions">
+			<button id="reset" type="button">Сбросить</button>
+			<button id="pause" type="button">Пауза</button>
+		</div>
+	</header>
+
+	<aside class="hud" aria-label="Настройки песочной модели">
+		<p class="kicker">Интерактивная инженерия</p>
+		<h1>Форма в движении</h1>
+		<p class="hint">
+			Проведите мышью или пальцем, чтобы насыпать песок. Двойное нажатие разрушает плотную форму.
+		</p>
+
+		<div class="controls">
+			<label class="control">
+				<span>Поток</span>
+				<input id="pourRate" type="range" min="4" max="48" step="1" value="22" />
+				<output id="pourValue">22</output>
+			</label>
+
+			<label class="control">
+				<span>Склон</span>
+				<input id="repose" type="range" min="25" max="48" step="1" value="34" />
+				<output id="reposeValue">34°</output>
+			</label>
+
+			<label class="control">
+				<span>Связь</span>
+				<input id="cohesion" type="range" min="0" max="1" step="0.01" value="0.55" />
+				<output id="cohesionValue">0.55</output>
+			</label>
+		</div>
+	</aside>
+
+	<div class="angle-chip">
+		<span id="angleReadout">34°</span>
+		<small>угол осыпания</small>
+	</div>
+
+	<div class="frame" aria-hidden="true"></div>
+</div>
+    <script src="./sng-sand.js"></script>
+
+  </body>
+  
+</html>
