@@ -62,11 +62,13 @@
       });
     }
 
+    // ===== ИСПРАВЛЕННЫЙ БЛОК ГОРИЗОНТАЛЬНОГО СКРОЛЛА =====
     if (!reduceMotion && processStory && processTrack) {
       const rect = processStory.getBoundingClientRect();
-      const distance = Math.max(1, processStory.offsetHeight - window.innerHeight);
-      const storyProgress = clamp(-rect.top / distance);
-      processTrack.style.transform = `translate3d(${-75 * storyProgress}%,0,0)`;
+      // Считаем прогресс по ширине, а не по высоте
+      const totalWidth = processStory.scrollWidth - window.innerWidth;
+      const progress = totalWidth > 0 ? clamp(-rect.left / totalWidth) : 0;
+      processTrack.style.transform = `translate3d(${-100 * progress}%,0,0)`;
     }
 
     if (!reduceMotion && contact) {
