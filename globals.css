@@ -14,7 +14,7 @@ html {
   scroll-behavior: smooth;
   background: var(--ink);
   scrollbar-color: var(--acid) var(--ink);
-  overflow-x: hidden; /* защита от горизонтального скролла */
+  overflow-x: hidden;
 }
 
 body {
@@ -22,13 +22,12 @@ body {
   background: var(--ink);
   color: var(--paper);
   font-family: Arial, Helvetica, sans-serif;
-  overflow-x: hidden; /* защита от горизонтального скролла */
+  overflow-x: hidden;
 }
 
 body::selection { background: var(--acid); color: var(--ink); }
 a { color: inherit; text-decoration: none; }
 
-/* ===== Фикс для всех картинок и видео ===== */
 img,
 video,
 iframe,
@@ -40,7 +39,6 @@ iframe,
   display: block;
 }
 
-/* ===== КУРСОР ===== */
 .cursor-aura {
   position: fixed;
   z-index: 90;
@@ -71,7 +69,6 @@ iframe,
   will-change: transform;
 }
 
-/* ===== ШАПКА ===== */
 .site-header {
   position: fixed;
   z-index: 30;
@@ -136,7 +133,6 @@ iframe,
 .header-cta span { display: grid; place-items: center; width: 36px; height: 36px; border-radius: 50%; background: var(--acid); color: var(--ink); transition: transform .3s ease; }
 .header-cta:hover span { transform: rotate(45deg); }
 
-/* ===== ГЕРОЙ ===== */
 .hero {
   position: relative;
   min-height: 100svh;
@@ -329,7 +325,6 @@ iframe,
 .hero-index span { color: var(--acid); }
 .hero-index i { width: 56px; height: 1px; background: #55574f; }
 
-/* ===== БЕГУЩАЯ СТРОКА ===== */
 .capability-rail { width: 100%; overflow: hidden; border-block: 1px solid #272822; background: var(--paper); color: var(--ink); transform: rotate(-1.3deg) scale(1.02); }
 .capability-rail__track { display: flex; width: max-content; will-change: transform; animation: marquee 27s linear infinite; }
 .capability-rail__group { display: flex; flex: 0 0 auto; align-items: center; justify-content: space-around; min-width: 100vw; padding: 17px 1vw; white-space: nowrap; }
@@ -337,7 +332,6 @@ iframe,
 .capability-rail i { color: var(--violet); font-style: normal; }
 @keyframes marquee { to { transform: translate3d(-50%, 0, 0); } }
 
-/* ===== СЕКЦИИ ===== */
 .section { padding: 140px 3.5vw; }
 .section-heading { display: grid; grid-template-columns: 1.3fr 1fr; align-items: end; gap: 8vw; margin-bottom: 72px; }
 .section-heading .kicker { grid-column: 1 / -1; margin-bottom: 0; color: var(--acid); }
@@ -345,7 +339,6 @@ iframe,
 .section-heading h2 em { color: var(--acid); font-family: Georgia, serif; font-weight: 400; }
 .section-heading > p:last-child { max-width: 440px; margin: 0 0 8px; color: #a9aaa3; line-height: 1.7; }
 
-/* ===== УСЛУГИ ===== */
 .service-grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: 14px; }
 .service-card { --card-rx: 0deg; --card-ry: 0deg; --card-y: 0px; position: relative; min-height: 410px; display: flex; flex-direction: column; justify-content: space-between; padding: 28px; overflow: hidden; border: 1px solid var(--line); background: #11120f; transform: perspective(1100px) rotateX(var(--card-rx)) rotateY(var(--card-ry)) translateY(var(--card-y)); transform-style: preserve-3d; transition: transform .35s cubic-bezier(.16,1,.3,1), border-color .4s ease; }
 .service-card:hover { --card-y: -8px; border-color: var(--acid); }
@@ -368,7 +361,6 @@ iframe,
 .data-visual { position: absolute; inset: 50px 4vw auto auto; display: flex; align-items: center; color: var(--acid); font: 800 clamp(2.8rem, 7vw, 8rem) ui-monospace,monospace; opacity: .16; }
 .data-visual i { width: 4vw; height: 1px; background: currentColor; }
 
-/* ===== ПРОЦЕСС (ГОРИЗОНТАЛЬНЫЙ СКРОЛЛ) ===== */
 .process { position: relative; border-top: 1px solid var(--line); background: var(--paper); color: var(--ink); }
 .process-intro { min-height: 86vh; display: grid; grid-template-columns: 1.35fr .65fr; align-content: center; align-items: end; gap: 7vw; }
 .process-intro .kicker { grid-column: 1 / -1; color: #55574f; }
@@ -376,13 +368,13 @@ iframe,
 .process-intro h2 em { color: var(--violet); font-family: Georgia,serif; font-weight: 400; }
 .process-intro-copy { max-width: 430px; margin: 0 0 10px; color: #55574f; font-size: 17px; line-height: 1.7; }
 
-/* ===== ГОРИЗОНТАЛЬНЫЙ СКРОЛЛ — РАБОТАЕТ ===== */
+/* ===== ГОРИЗОНТАЛЬНЫЙ СКРОЛЛ — ИСПРАВЛЕН ===== */
 .process-story {
   position: relative;
-  height: 340vh;
+  height: 270vh;           /* ← ИДЕАЛЬНОЕ ЗНАЧЕНИЕ, БЕЛЫЙ ФОН УБРАН */
   view-timeline-name: --process;
   view-timeline-axis: block;
-  overflow-x: auto;        /* ← разрешаем горизонтальную прокрутку */
+  overflow-x: auto;
   overflow-y: hidden;
   -webkit-overflow-scrolling: touch;
   scroll-snap-type: x mandatory;
@@ -451,7 +443,6 @@ iframe,
 .process-card--four { background: var(--orange); color: var(--ink); }
 .process-card--four > p, .process-card--four .process-symbol, .process-card--four > span { color: var(--ink); }
 
-/* ===== ПРОЕКТ ===== */
 .process-project { position: relative; margin: -4vh 3.5vw 140px; border: 1px solid var(--ink); background: var(--ink); color: var(--paper); box-shadow: 18px 18px 0 var(--violet); }
 .process-project__meta { min-height: 58px; display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 0 20px; border-bottom: 1px solid rgba(255,255,255,.18); color: #a9aaa3; font: 9px ui-monospace,monospace; letter-spacing: .14em; }
 .process-project__meta b { color: var(--acid); font-weight: 500; }
@@ -468,7 +459,6 @@ iframe,
 .process-project.is-active .process-project__toggle { background: var(--ink); color: var(--acid); }
 .process-project.is-active .process-project__toggle i { transform: rotate(90deg); }
 
-/* ===== ДОКАЗАТЕЛЬСТВА ===== */
 .proof { position: relative; background: var(--ink); }
 .proof::before { content: "PROOF / PROOF / PROOF"; position: absolute; top: 10vw; right: -4vw; color: rgba(255,255,255,.025); font-size: 12vw; font-weight: 900; letter-spacing: -.08em; writing-mode: vertical-rl; }
 .proof-head { display: grid; grid-template-columns: 1.35fr .65fr; align-items: end; gap: 7vw; }
@@ -486,7 +476,6 @@ iframe,
 .metrics dd { margin: 0; color: #c0c1ba; font-size: 12px; line-height: 1.5; text-transform: uppercase; letter-spacing: .07em; }
 .metrics dd span { color: #66685f; font: 8px ui-monospace,monospace; }
 
-/* ===== СИСТЕМА ЗАКАЗА ===== */
 .order-system { position: relative; padding: clamp(38px, 5vw, 72px); overflow: hidden; border: 1px solid rgba(242,241,235,.13); border-radius: 42px; background: radial-gradient(circle at 8% 7%, rgba(116,87,255,.18), transparent 29%), radial-gradient(circle at 91% 88%, rgba(198,255,56,.12), transparent 28%), #0d0e0b; }
 .order-system::before { content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .22; background-image: radial-gradient(rgba(242,241,235,.55) .7px, transparent .7px); background-size: 16px 16px; mask-image: linear-gradient(135deg,#000,transparent 54%); }
 .order-system__head { position: relative; z-index: 1; display: grid; grid-template-columns: 1.35fr .65fr; align-items: end; gap: 7vw; }
@@ -521,7 +510,6 @@ iframe,
 .order-flow h4 { position: relative; z-index: 1; margin: 0 0 16px; font-size: clamp(1.8rem, 2.8vw, 3.35rem); font-weight: 500; letter-spacing: -.055em; line-height: .94; }
 .order-flow p { position: relative; z-index: 1; max-width: 330px; margin: 0; font-size: 12px; line-height: 1.55; opacity: .7; }
 
-/* ===== СТЕК ===== */
 .stack { display: grid; grid-template-columns: .72fr 1.28fr; align-items: center; gap: 7vw; min-height: 100vh; background: #d9d6cd; color: var(--ink); }
 .stack-copy .kicker { color: #55574f; }
 .stack-copy h2 { margin: 0; font-size: clamp(3.8rem,6.5vw,7.5rem); font-weight: 500; letter-spacing: -.07em; line-height: .85; }
@@ -540,7 +528,6 @@ iframe,
 .terminal-cursor { color: var(--acid); animation: blink .8s steps(1) infinite; }
 @keyframes blink { 50% { opacity: 0; } }
 
-/* ===== КОНТАКТЫ ===== */
 .contact { position: relative; min-height: 100vh; padding: 8vh 3.5vw 6vh; display: flex; flex-direction: column; justify-content: space-between; overflow: hidden; background: var(--violet); color: var(--paper); }
 .contact-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,.1) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.1) 1px,transparent 1px); background-size: 6.25vw 6.25vw; mask-image: linear-gradient(90deg, black, transparent 80%); }
 .contact .kicker { position: relative; color: rgba(255,255,255,.7); }
@@ -556,7 +543,6 @@ iframe,
 .contact-button:hover::before { inset: 0; }
 .contact-button:hover .contact-button__arrow { transform: rotate(45deg); }
 
-/* ===== ПОДВАЛ ===== */
 .site-footer { padding: 42px 3.5vw 24px; border-top: 1px solid var(--line); background: #0a0b08; }
 .footer-main { display: grid; grid-template-columns: 1fr auto minmax(220px,.72fr); align-items: start; gap: clamp(45px, 8vw, 130px); padding-bottom: 38px; }
 .footer-logo { width: max-content; }
@@ -583,7 +569,6 @@ iframe,
 .footer-status { justify-self: end; display: inline-flex; align-items: center; gap: 9px; }
 .footer-status i { width: 6px; height: 6px; border-radius: 50%; background: var(--acid); box-shadow: 0 0 12px rgba(198,255,56,.7); }
 
-/* ===== АНИМАЦИЯ ПОЯВЛЕНИЯ ===== */
 .reveal { opacity: 1; translate: 0 0; scale: 1; filter: none; }
 .js .reveal {
   opacity: 0;
@@ -594,7 +579,6 @@ iframe,
 .js .reveal.is-visible { opacity: 1; translate: 0 0; scale: 1; }
 .js .contact .reveal { filter: none !important; }
 
-/* ===== АДАПТИВ ДЛЯ ПЛАНШЕТОВ ===== */
 @media (max-width: 900px) {
   .site-header { height: 78px; grid-template-columns: 1fr auto; padding-inline: 20px; }
   .main-nav { display: none; }
@@ -633,13 +617,10 @@ iframe,
   .footer-logo { grid-column: 1 / -1; }
 }
 
-/* ===== АДАПТИВ ДЛЯ ТЕЛЕФОНОВ ===== */
 @media (max-width: 560px) {
-  /* Фикс для бегущей строки — убираем поворот, чтобы не вылезала */
   .capability-rail {
     transform: rotate(0deg) scale(1);
   }
-
   .header-cta { font-size: 0; gap: 0; }
   .hero-actions { align-items: flex-start; flex-direction: column; gap: 24px; }
   .hero-lead { width: 100%; }
@@ -658,9 +639,8 @@ iframe,
   .process-project__hint span { margin-bottom: 78px; font-size: 7px; text-align: center; }
   .process-project__toggle { right: 12px; bottom: 12px; min-width: 202px; padding: 13px 14px; font-size: 8px; }
 
-  /* Горизонтальный скролл на телефонах — работает, но карточки чуть меньше */
   .process-story {
-    height: 280vh;
+    height: 230vh;         /* ← корректировка для телефонов */
   }
   .process-meta { left: 20px; right: 20px; }
   .process-card { grid-template-columns: 1fr; padding: 8vh 20px 5vh; }
@@ -691,13 +671,11 @@ iframe,
   .footer-bottom { min-height: 68px; align-items: flex-start; flex-direction: column; justify-content: flex-end; gap: 12px; }
 }
 
-/* ===== ОТКЛЮЧАЕМ КУРСОР НА ТАЧ-ЭКРАНАХ ===== */
 @media (pointer: coarse) {
   .cursor-aura { display: none; }
   .service-card, .hero-visual { transform: none; }
 }
 
-/* ===== ДЛЯ ТЕХ, У КОГО ВКЛЮЧЕНО УМЕНЬШЕНИЕ АНИМАЦИИ ===== */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
   .js .reveal { opacity: 1; translate: 0; scale: 1; }
