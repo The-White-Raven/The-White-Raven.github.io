@@ -672,3 +672,48 @@ a { color: inherit; text-decoration: none; }
   .process-track { position: relative; width: 100%; display: block; transform: none !important; }
   .process-card { width: 100%; min-height: 72vh; }
 }
+/* Фиксим горизонтальный скролл без гемора */
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
+  position: relative;
+}
+
+/* Чтобы sticky работал внутри overflow-hidden */
+.process {
+  overflow-x: visible;
+  overflow-y: visible;
+}
+
+.process-story {
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Убираем вылезающие элементы на мобилках */
+@media (max-width: 768px) {
+  .capability-rail {
+    transform: rotate(0deg) scale(1);
+    margin: 0;
+  }
+  
+  .contact h2 {
+    white-space: normal;
+    font-size: clamp(2.5rem, 12vw, 5rem);
+  }
+  
+  .proof::before {
+    display: none;
+  }
+  
+  .terrain-canvas {
+    inset: 15% 0 3% 0;
+    width: 100%;
+  }
+  
+  .process-card {
+    padding-left: 5vw;
+    padding-right: 5vw;
+  }
+}
