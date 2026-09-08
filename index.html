@@ -2,13 +2,63 @@
 <html lang="ru" class="js">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>SNG — студия разработки</title>
   
-  <!-- Подключение CSS -->
+  <!-- ===== ПОДКЛЮЧЕНИЕ ТВОЕГО CSS ===== -->
   <link rel="stylesheet" href="globals.css" />
   
-  <!-- Шрифты (опционально) -->
+  <!-- ===== ВСТРОЕННЫЕ ФИКСЫ (ГАРАНТИЯ РАБОТЫ) ===== -->
+  <style>
+    /* Базовые фиксы */
+    html, body {
+      overflow-x: hidden;
+      max-width: 100%;
+    }
+    
+    /* Горизонтальный скролл — принудительно */
+    .process-story {
+      overflow-x: auto !important;
+      overflow-y: hidden !important;
+      -webkit-overflow-scrolling: touch !important;
+      scroll-snap-type: x mandatory !important;
+      height: 270vh !important;
+    }
+    
+    .process-track {
+      display: flex !important;
+      flex-wrap: nowrap !important;
+      width: 400% !important;
+      height: 100% !important;
+    }
+    
+    .process-card {
+      flex: 0 0 25% !important;
+      scroll-snap-align: start !important;
+      overflow: hidden !important;
+    }
+    
+    /* Убираем дубликаты, если вдруг есть */
+    .process-story .process-story {
+      display: none !important;
+    }
+    
+    /* Телефоны */
+    @media (max-width: 560px) {
+      .process-story {
+        height: 230vh !important;
+      }
+    }
+    
+    /* Картинки */
+    img, video, iframe {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+  </style>
+  
+  <!-- Шрифты -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
