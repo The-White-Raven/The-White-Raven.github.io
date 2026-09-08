@@ -387,7 +387,7 @@ iframe,
 /* ===== ГОРИЗОНТАЛЬНЫЙ СКРОЛЛ — ИСПРАВЛЕН ===== */
 .process-story {
   position: relative;
-  height: 400vh; /* Увеличена высота для лучшего эффекта */
+  height: 270vh;
   overflow: visible;
 }
 
@@ -426,7 +426,6 @@ iframe,
   flex-wrap: nowrap;
   transform: translate3d(0,0,0);
   will-change: transform;
-  transition: transform 0.1s linear;
 }
 
 .process-card {
@@ -636,7 +635,7 @@ iframe,
   .process-project__toggle { right: 12px; bottom: 12px; min-width: 202px; padding: 13px 14px; font-size: 8px; }
 
   .process-story {
-    height: 300vh;
+    height: 230vh;
     overflow: visible;
   }
   .process-meta { left: 20px; right: 20px; }
@@ -676,7 +675,7 @@ iframe,
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
   .js .reveal { opacity: 1; translate: 0; scale: 1; }
-  .process-story { height: auto; }
+  .process-story { height: auto; overflow: visible; }
   .process-pin { position: relative; height: auto; }
   .process-track { position: relative; width: 100%; display: block; transform: none !important; }
   .process-card { width: 100%; min-height: 72vh; }
