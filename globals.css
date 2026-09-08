@@ -372,13 +372,13 @@ a { color: inherit; text-decoration: none; }
 .process-project.is-active .process-project__toggle { background: var(--ink); color: var(--acid); }
 .process-project.is-active .process-project__toggle i { transform: rotate(90deg); }
 
-.process-story { position: relative; height: 340vh; view-timeline-name: --process; view-timeline-axis: block; }
-.process-pin { position: sticky; top: 0; height: 100vh; overflow: hidden; background: var(--ink); color: var(--paper); }
+.process-story { position: relative; height: 340vh; view-timeline-name: --process; view-timeline-axis: block; overflow-x: hidden; }
+.process-pin { position: sticky; top: 0; height: 100vh; overflow: hidden; background: var(--ink); color: var(--paper); width: 100%; }
 .process-meta { position: absolute; z-index: 2; top: 28px; left: 3.5vw; right: 3.5vw; display: flex; align-items: center; gap: 18px; color: #777970; font: 8px ui-monospace,monospace; letter-spacing: .17em; }
 .process-meta i { flex: 1; height: 1px; background: #2c2e28; }
 .process-meta b { color: var(--acid); font-weight: 500; }
 .process-track { position: absolute; top: 0; left: 0; width: 400%; height: 100%; display: flex; transform: translate3d(0,0,0); will-change: transform; }
-.process-card { position: relative; width: 25%; height: 100%; display: grid; grid-template-columns: 1fr auto; grid-template-rows: auto 1fr auto; align-items: end; padding: 11vh 3.5vw 7vh; border-right: 1px solid rgba(255,255,255,.18); overflow: hidden; }
+.process-card { position: relative; width: 25%; height: 100%; display: grid; grid-template-columns: 1fr auto; grid-template-rows: auto 1fr auto; align-items: end; padding: 11vh 3.5vw 7vh; border-right: 1px solid rgba(255,255,255,.18); overflow: hidden; flex-shrink: 0; }
 .process-card > p { align-self: start; margin: 0; color: var(--acid); font: 10px ui-monospace,monospace; letter-spacing: .14em; }
 .process-card h3 { grid-column: 1 / -1; align-self: center; margin: 0; font-size: clamp(5rem, 10vw, 12rem); font-weight: 500; letter-spacing: -.08em; line-height: .79; }
 .process-card > span { color: #a9aaa3; font-size: 13px; letter-spacing: .05em; }
