@@ -14,7 +14,6 @@ html {
   scroll-behavior: smooth;
   background: var(--ink);
   scrollbar-color: var(--acid) var(--ink);
-  overflow-x: hidden;
 }
 
 body {
@@ -27,17 +26,6 @@ body {
 
 body::selection { background: var(--acid); color: var(--ink); }
 a { color: inherit; text-decoration: none; }
-
-img,
-video,
-iframe,
-.hero-media__video,
-.hero-media__fallback,
-.hero-media__final {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
 
 .cursor-aura {
   position: fixed;
@@ -384,69 +372,13 @@ iframe,
 .process-project.is-active .process-project__toggle { background: var(--ink); color: var(--acid); }
 .process-project.is-active .process-project__toggle i { transform: rotate(90deg); }
 
-/* ===== ГОРИЗОНТАЛЬНЫЙ СКРОЛЛ — ИСПРАВЛЕН ===== */
-.process-story {
-  position: relative;
-  height: 270vh;
-  view-timeline-name: --process;
-  view-timeline-axis: block;
-  overflow-x: auto;
-  overflow-y: hidden;
-  -webkit-overflow-scrolling: touch;
-  scroll-snap-type: x mandatory;
-}
-
-.process-pin {
-  position: sticky;
-  top: 0;
-  height: 100vh;
-  overflow: hidden;
-  background: var(--ink);
-  color: var(--paper);
-}
-
-.process-meta {
-  position: absolute;
-  z-index: 2;
-  top: 28px;
-  left: 3.5vw;
-  right: 3.5vw;
-  display: flex;
-  align-items: center;
-  gap: 18px;
-  color: #777970;
-  font: 8px ui-monospace,monospace;
-  letter-spacing: .17em;
-}
+.process-story { position: relative; height: 340vh; view-timeline-name: --process; view-timeline-axis: block; }
+.process-pin { position: sticky; top: 0; height: 100vh; overflow: hidden; background: var(--ink); color: var(--paper); }
+.process-meta { position: absolute; z-index: 2; top: 28px; left: 3.5vw; right: 3.5vw; display: flex; align-items: center; gap: 18px; color: #777970; font: 8px ui-monospace,monospace; letter-spacing: .17em; }
 .process-meta i { flex: 1; height: 1px; background: #2c2e28; }
 .process-meta b { color: var(--acid); font-weight: 500; }
-
-.process-track {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 400%;
-  height: 100%;
-  display: flex;
-  flex-wrap: nowrap;
-  transform: translate3d(0,0,0);
-  will-change: transform;
-}
-
-.process-card {
-  position: relative;
-  width: 25%;
-  height: 100%;
-  flex: 0 0 25%;
-  display: grid;
-  grid-template-columns: 1fr auto;
-  grid-template-rows: auto 1fr auto;
-  align-items: end;
-  padding: 11vh 3.5vw 7vh;
-  border-right: 1px solid rgba(255,255,255,.18);
-  overflow: hidden;
-  scroll-snap-align: start;
-}
+.process-track { position: absolute; top: 0; left: 0; width: 400%; height: 100%; display: flex; transform: translate3d(0,0,0); will-change: transform; }
+.process-card { position: relative; width: 25%; height: 100%; display: grid; grid-template-columns: 1fr auto; grid-template-rows: auto 1fr auto; align-items: end; padding: 11vh 3.5vw 7vh; border-right: 1px solid rgba(255,255,255,.18); overflow: hidden; }
 .process-card > p { align-self: start; margin: 0; color: var(--acid); font: 10px ui-monospace,monospace; letter-spacing: .14em; }
 .process-card h3 { grid-column: 1 / -1; align-self: center; margin: 0; font-size: clamp(5rem, 10vw, 12rem); font-weight: 500; letter-spacing: -.08em; line-height: .79; }
 .process-card > span { color: #a9aaa3; font-size: 13px; letter-spacing: .05em; }
@@ -555,16 +487,77 @@ iframe,
 .footer-contacts a { display: inline-flex; align-items: center; gap: 9px; }
 .footer-contacts i { color: var(--acid); font-style: normal; transition: transform .25s ease; }
 .footer-contacts a:hover i { transform: translate(2px,-2px); }
-.footer-email-wrapper { display: flex; align-items: center; gap: 8px; margin-top: 4px; flex-wrap: wrap; }
-.footer-email-text { color: #b9bab3; font-size: 11px; letter-spacing: 0.04em; transition: color .25s ease; word-break: break-all; }
-.footer-email-text:hover { color: var(--acid); }
-.footer-email-copy { display: inline-flex; align-items: center; justify-content: center; padding: 2px; border: none; background: transparent; color: #66685f; cursor: pointer; transition: color .25s ease, transform .2s ease; }
-.footer-email-copy:hover { color: var(--acid); transform: scale(1.1); }
-.footer-email-copy:active { transform: scale(0.9); }
-.footer-email-copy svg { display: block; width: 14px; height: 14px; }
-.copy-tooltip { display: none; color: var(--acid); font-size: 10px; font-weight: 500; letter-spacing: 0.05em; animation: fadeInUp .3s ease; }
-.copy-tooltip.show { display: inline-block; }
-@keyframes fadeInUp { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+
+/* Почта как надпись как Telegram */
+.footer-email-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.footer-email-text {
+  color: #b9bab3;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  transition: color .25s ease;
+}
+
+.footer-email-text:hover {
+  color: var(--acid);
+}
+
+.footer-email-copy {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px;
+  border: none;
+  background: transparent;
+  color: #66685f;
+  cursor: pointer;
+  transition: color .25s ease, transform .2s ease;
+}
+
+.footer-email-copy:hover {
+  color: var(--acid);
+  transform: scale(1.1);
+}
+
+.footer-email-copy:active {
+  transform: scale(0.9);
+}
+
+.footer-email-copy svg {
+  display: block;
+  width: 14px;
+  height: 14px;
+}
+
+.copy-tooltip {
+  display: none;
+  color: var(--acid);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  animation: fadeInUp .3s ease;
+}
+
+.copy-tooltip.show {
+  display: inline-block;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .footer-bottom { min-height: 48px; display: flex; align-items: end; justify-content: space-between; gap: 28px; border-top: 1px solid rgba(242,241,235,.13); color: #777970; font: 8px ui-monospace,monospace; letter-spacing: .12em; }
 .footer-status { justify-self: end; display: inline-flex; align-items: center; gap: 9px; }
 .footer-status i { width: 6px; height: 6px; border-radius: 50%; background: var(--acid); box-shadow: 0 0 12px rgba(198,255,56,.7); }
@@ -618,9 +611,6 @@ iframe,
 }
 
 @media (max-width: 560px) {
-  .capability-rail {
-    transform: rotate(0deg) scale(1);
-  }
   .header-cta { font-size: 0; gap: 0; }
   .hero-actions { align-items: flex-start; flex-direction: column; gap: 24px; }
   .hero-lead { width: 100%; }
@@ -638,19 +628,11 @@ iframe,
   .process-project__stage { height: 72svh; min-height: 520px; }
   .process-project__hint span { margin-bottom: 78px; font-size: 7px; text-align: center; }
   .process-project__toggle { right: 12px; bottom: 12px; min-width: 202px; padding: 13px 14px; font-size: 8px; }
-
-  .process-story {
-    height: 230vh;
-    overflow-x: auto;
-    overflow-y: hidden;
-    -webkit-overflow-scrolling: touch;
-    scroll-snap-type: x mandatory;
-  }
+  .process-story { height: 310vh; }
   .process-meta { left: 20px; right: 20px; }
-  .process-card { grid-template-columns: 1fr; padding: 8vh 20px 5vh; }
+  .process-card { grid-template-columns: 1fr; }
   .process-card h3 { font-size: 18vw; }
-  .process-symbol { position: absolute; top: 18%; right: 20px; width: 18vw; height: 18vw; }
-
+  .process-symbol { position: absolute; top: 18%; right: 20px; }
   .metrics { grid-template-columns: 1fr; margin-block: 80px 110px; }
   .metrics > div { min-height: 210px; border-right: 0; border-bottom: 1px solid var(--line); }
   .metrics > div:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
