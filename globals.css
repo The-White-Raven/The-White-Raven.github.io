@@ -387,23 +387,34 @@ iframe,
 /* ===== ГОРИЗОНТАЛЬНЫЙ СКРОЛЛ — ИСПРАВЛЕН ===== */
 .process-story {
   position: relative;
-  height: 270vh;
-  view-timeline-name: --process;
-  view-timeline-axis: block;
-  overflow: hidden; /* Было: overflow-x: auto; */
-  overflow-y: hidden;
-  -webkit-overflow-scrolling: touch;
-  scroll-snap-type: none; /* Было: scroll-snap-type: x mandatory; */
+  height: 400vh; /* Увеличена высота для лучшего эффекта */
+  overflow: visible;
 }
 
 .process-pin {
   position: sticky;
   top: 0;
   height: 100vh;
-  overflow: hidden; /* Уже было */
+  overflow: hidden;
   background: var(--ink);
   color: var(--paper);
 }
+
+.process-meta {
+  position: absolute;
+  z-index: 2;
+  top: 28px;
+  left: 3.5vw;
+  right: 3.5vw;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  color: #777970;
+  font: 8px ui-monospace,monospace;
+  letter-spacing: .17em;
+}
+.process-meta i { flex: 1; height: 1px; background: #2c2e28; }
+.process-meta b { color: var(--acid); font-weight: 500; }
 
 .process-track {
   position: absolute;
@@ -415,6 +426,7 @@ iframe,
   flex-wrap: nowrap;
   transform: translate3d(0,0,0);
   will-change: transform;
+  transition: transform 0.1s linear;
 }
 
 .process-card {
@@ -624,11 +636,8 @@ iframe,
   .process-project__toggle { right: 12px; bottom: 12px; min-width: 202px; padding: 13px 14px; font-size: 8px; }
 
   .process-story {
-    height: 230vh;
-    overflow-x: auto;
-    overflow-y: hidden;
-    -webkit-overflow-scrolling: touch;
-    scroll-snap-type: x mandatory;
+    height: 300vh;
+    overflow: visible;
   }
   .process-meta { left: 20px; right: 20px; }
   .process-card { grid-template-columns: 1fr; padding: 8vh 20px 5vh; }
@@ -671,13 +680,4 @@ iframe,
   .process-pin { position: relative; height: auto; }
   .process-track { position: relative; width: 100%; display: block; transform: none !important; }
   .process-card { width: 100%; min-height: 72vh; }
-}
-@media (max-width: 560px) {
-  .process-story {
-    height: 230vh;
-    overflow: hidden; /* Было: overflow-x: auto; */
-    overflow-y: hidden;
-    -webkit-overflow-scrolling: touch;
-    scroll-snap-type: none; /* Было: scroll-snap-type: x mandatory; */
-  }
 }
