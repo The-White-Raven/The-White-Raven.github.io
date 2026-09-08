@@ -368,10 +368,26 @@ iframe,
 .process-intro h2 em { color: var(--violet); font-family: Georgia,serif; font-weight: 400; }
 .process-intro-copy { max-width: 430px; margin: 0 0 10px; color: #55574f; font-size: 17px; line-height: 1.7; }
 
+.process-project { position: relative; margin: -4vh 3.5vw 140px; border: 1px solid var(--ink); background: var(--ink); color: var(--paper); box-shadow: 18px 18px 0 var(--violet); }
+.process-project__meta { min-height: 58px; display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 0 20px; border-bottom: 1px solid rgba(255,255,255,.18); color: #a9aaa3; font: 9px ui-monospace,monospace; letter-spacing: .14em; }
+.process-project__meta b { color: var(--acid); font-weight: 500; }
+.process-project__stage { position: relative; height: min(82svh, 900px); min-height: 620px; overflow: hidden; background: #f2f1eb; isolation: isolate; }
+.process-project iframe { width: 100%; height: 100%; display: block; border: 0; pointer-events: none; filter: saturate(.7) brightness(.92); transition: filter .6s ease; }
+.process-project.is-active iframe { pointer-events: auto; filter: none; }
+.process-project__hint { position: absolute; z-index: 2; inset: 0; display: grid; place-items: center; pointer-events: none; background: linear-gradient(180deg, transparent 60%, rgba(7,8,6,.42)); transition: opacity .4s ease; }
+.process-project__hint span { margin-top: auto; margin-bottom: 82px; padding: 9px 13px; border: 1px solid rgba(255,255,255,.24); background: rgba(7,8,6,.56); color: var(--paper); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); font: 8px ui-monospace,monospace; letter-spacing: .13em; text-transform: uppercase; }
+.process-project.is-active .process-project__hint { opacity: 0; }
+.process-project__toggle { position: absolute; z-index: 4; right: 18px; bottom: 18px; display: inline-flex; align-items: center; gap: 28px; min-width: 224px; justify-content: space-between; padding: 14px 16px; border: 1px solid var(--acid); background: var(--acid); color: var(--ink); cursor: pointer; font: 700 9px Arial,sans-serif; letter-spacing: .09em; text-transform: uppercase; transition: background .3s ease, color .3s ease, transform .3s ease; }
+.process-project__toggle i { font-size: 17px; font-style: normal; line-height: 1; transition: transform .3s ease; }
+.process-project__toggle:hover { transform: translateY(-2px); background: var(--paper); border-color: var(--paper); }
+.process-project__toggle:focus-visible { outline: 2px solid var(--paper); outline-offset: 3px; }
+.process-project.is-active .process-project__toggle { background: var(--ink); color: var(--acid); }
+.process-project.is-active .process-project__toggle i { transform: rotate(90deg); }
+
 /* ===== ГОРИЗОНТАЛЬНЫЙ СКРОЛЛ — ИСПРАВЛЕН ===== */
 .process-story {
   position: relative;
-  height: 270vh;           /* ← ИДЕАЛЬНОЕ ЗНАЧЕНИЕ, БЕЛЫЙ ФОН УБРАН */
+  height: 270vh;
   view-timeline-name: --process;
   view-timeline-axis: block;
   overflow-x: auto;
@@ -442,22 +458,6 @@ iframe,
 .process-card--three > p, .process-card--three .process-symbol, .process-card--three > span { color: var(--ink); }
 .process-card--four { background: var(--orange); color: var(--ink); }
 .process-card--four > p, .process-card--four .process-symbol, .process-card--four > span { color: var(--ink); }
-
-.process-project { position: relative; margin: -4vh 3.5vw 140px; border: 1px solid var(--ink); background: var(--ink); color: var(--paper); box-shadow: 18px 18px 0 var(--violet); }
-.process-project__meta { min-height: 58px; display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 0 20px; border-bottom: 1px solid rgba(255,255,255,.18); color: #a9aaa3; font: 9px ui-monospace,monospace; letter-spacing: .14em; }
-.process-project__meta b { color: var(--acid); font-weight: 500; }
-.process-project__stage { position: relative; height: min(82svh, 900px); min-height: 620px; overflow: hidden; background: #f2f1eb; isolation: isolate; }
-.process-project iframe { width: 100%; height: 100%; display: block; border: 0; pointer-events: none; filter: saturate(.7) brightness(.92); transition: filter .6s ease; }
-.process-project.is-active iframe { pointer-events: auto; filter: none; }
-.process-project__hint { position: absolute; z-index: 2; inset: 0; display: grid; place-items: center; pointer-events: none; background: linear-gradient(180deg, transparent 60%, rgba(7,8,6,.42)); transition: opacity .4s ease; }
-.process-project__hint span { margin-top: auto; margin-bottom: 82px; padding: 9px 13px; border: 1px solid rgba(255,255,255,.24); background: rgba(7,8,6,.56); color: var(--paper); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); font: 8px ui-monospace,monospace; letter-spacing: .13em; text-transform: uppercase; }
-.process-project.is-active .process-project__hint { opacity: 0; }
-.process-project__toggle { position: absolute; z-index: 4; right: 18px; bottom: 18px; display: inline-flex; align-items: center; gap: 28px; min-width: 224px; justify-content: space-between; padding: 14px 16px; border: 1px solid var(--acid); background: var(--acid); color: var(--ink); cursor: pointer; font: 700 9px Arial,sans-serif; letter-spacing: .09em; text-transform: uppercase; transition: background .3s ease, color .3s ease, transform .3s ease; }
-.process-project__toggle i { font-size: 17px; font-style: normal; line-height: 1; transition: transform .3s ease; }
-.process-project__toggle:hover { transform: translateY(-2px); background: var(--paper); border-color: var(--paper); }
-.process-project__toggle:focus-visible { outline: 2px solid var(--paper); outline-offset: 3px; }
-.process-project.is-active .process-project__toggle { background: var(--ink); color: var(--acid); }
-.process-project.is-active .process-project__toggle i { transform: rotate(90deg); }
 
 .proof { position: relative; background: var(--ink); }
 .proof::before { content: "PROOF / PROOF / PROOF"; position: absolute; top: 10vw; right: -4vw; color: rgba(255,255,255,.025); font-size: 12vw; font-weight: 900; letter-spacing: -.08em; writing-mode: vertical-rl; }
@@ -640,7 +640,11 @@ iframe,
   .process-project__toggle { right: 12px; bottom: 12px; min-width: 202px; padding: 13px 14px; font-size: 8px; }
 
   .process-story {
-    height: 230vh;         /* ← корректировка для телефонов */
+    height: 230vh;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
   }
   .process-meta { left: 20px; right: 20px; }
   .process-card { grid-template-columns: 1fr; padding: 8vh 20px 5vh; }
