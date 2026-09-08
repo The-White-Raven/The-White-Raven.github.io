@@ -48,6 +48,7 @@
   
   const updateScrollEffects = () => {
     scrollFrame = 0;
+    isScrolling = false;
     const y = window.scrollY;
     const maxScroll = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
     const pageProgress = clamp(y / maxScroll);
@@ -68,21 +69,20 @@
       const rect = processStory.getBoundingClientRect();
       const viewportHeight = window.innerHeight;
       
-      // Секция "залипает" когда её верх достигает верха экрана
-      if (rect.top <= 0 && rect.bottom >= viewportHeight) {
-        // Высота, которую нужно проскроллить для полного горизонтального перелистывания
+      // Когда верх секции достигает верха экрана
+      if (rect.top <= 0 && rect.bottom > viewportHeight) {
         const scrollDistance = processStory.offsetHeight - viewportHeight;
-        // Насколько мы уже проскроллили внутри залипшей секции
-        const currentProgress = clamp(-rect.top / scrollDistance);
+        const progress = clamp(-rect.top / scrollDistance);
         
-        // Вычисляем горизонтальное смещение
         const cards = processTrack.querySelectorAll('.process-card');
-        const cardWidth = cards[0]?.offsetWidth || processTrack.clientWidth / 4;
-        const totalCardsWidth = processTrack.scrollWidth;
-        const maxTranslate = totalCardsWidth - processStory.clientWidth;
+        const totalCards = cards.length;
+        const cardWidth = cards[0]?.offsetWidth || viewportHeight;
+        const maxTranslate = (totalCards - 1) * cardWidth;
         
-        const translateX = -maxTranslate * currentProgress;
-        processTrack.style.transform = `translate3d(${translateX}px, 0, 0)`;
+        processTrack.style.transform = `translate3d(${-maxTranslate * progress}px, 0, 0)`;
+      } else if (rect.top > 0) {
+        // Сбрасываем на начальную позицию
+        processTrack.style.transform = 'translate3d(0, 0, 0)';
       }
     }
 
@@ -98,10 +98,7 @@
   const requestScrollUpdate = () => {
     if (!scrollFrame && !isScrolling) {
       isScrolling = true;
-      scrollFrame = requestAnimationFrame(() => {
-        updateScrollEffects();
-        isScrolling = false;
-      });
+      scrollFrame = requestAnimationFrame(updateScrollEffects);
     }
   };
 
