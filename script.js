@@ -44,6 +44,8 @@
   }
 
   let scrollFrame = 0;
+  let isScrolling = false;
+  
   const updateScrollEffects = () => {
     scrollFrame = 0;
     const y = window.scrollY;
@@ -63,11 +65,23 @@
     }
 
     if (!reduceMotion && processStory && processTrack) {
-  const rect = processStory.getBoundingClientRect();
-  const distance = Math.max(1, processStory.offsetHeight - window.innerHeight);
-  const storyProgress = clamp(-rect.top / distance);
-  processTrack.style.transform = `translate3d(${-80 * storyProgress}%,0,0)`;
-}
+      const rect = processStory.getBoundingClientRect();
+      const viewportHeight = window.innerHeight;
+      const storyHeight = processStory.offsetHeight;
+      
+      // Проверяем, находится ли секция в зоне видимости
+      if (rect.top < viewportHeight && rect.bottom > 0) {
+        // Вычисляем прогресс на основе позиции секции
+        const totalScrollDistance = storyHeight - viewportHeight;
+        const currentScroll = -rect.top;
+        const storyProgress = clamp(currentScroll / totalScrollDistance);
+        
+        // Применяем трансформацию для горизонтального скролла
+        const maxTranslate = -(processTrack.scrollWidth - processStory.clientWidth);
+        const translateX = maxTranslate * storyProgress;
+        processTrack.style.transform = `translate3d(${translateX}px, 0, 0)`;
+      }
+    }
 
     if (!reduceMotion && contact) {
       const rect = contact.getBoundingClientRect();
@@ -79,7 +93,13 @@
   };
 
   const requestScrollUpdate = () => {
-    if (!scrollFrame) scrollFrame = requestAnimationFrame(updateScrollEffects);
+    if (!scrollFrame && !isScrolling) {
+      isScrolling = true;
+      scrollFrame = requestAnimationFrame(() => {
+        updateScrollEffects();
+        isScrolling = false;
+      });
+    }
   };
 
   window.addEventListener('scroll', requestScrollUpdate, { passive: true });
