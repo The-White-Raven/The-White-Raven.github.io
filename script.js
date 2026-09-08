@@ -67,18 +67,21 @@
     if (!reduceMotion && processStory && processTrack) {
       const rect = processStory.getBoundingClientRect();
       const viewportHeight = window.innerHeight;
-      const storyHeight = processStory.offsetHeight;
       
-      // Проверяем, находится ли секция в зоне видимости
-      if (rect.top < viewportHeight && rect.bottom > 0) {
-        // Вычисляем прогресс на основе позиции секции
-        const totalScrollDistance = storyHeight - viewportHeight;
-        const currentScroll = -rect.top;
-        const storyProgress = clamp(currentScroll / totalScrollDistance);
+      // Секция "залипает" когда её верх достигает верха экрана
+      if (rect.top <= 0 && rect.bottom >= viewportHeight) {
+        // Высота, которую нужно проскроллить для полного горизонтального перелистывания
+        const scrollDistance = processStory.offsetHeight - viewportHeight;
+        // Насколько мы уже проскроллили внутри залипшей секции
+        const currentProgress = clamp(-rect.top / scrollDistance);
         
-        // Применяем трансформацию для горизонтального скролла
-        const maxTranslate = -(processTrack.scrollWidth - processStory.clientWidth);
-        const translateX = maxTranslate * storyProgress;
+        // Вычисляем горизонтальное смещение
+        const cards = processTrack.querySelectorAll('.process-card');
+        const cardWidth = cards[0]?.offsetWidth || processTrack.clientWidth / 4;
+        const totalCardsWidth = processTrack.scrollWidth;
+        const maxTranslate = totalCardsWidth - processStory.clientWidth;
+        
+        const translateX = -maxTranslate * currentProgress;
         processTrack.style.transform = `translate3d(${translateX}px, 0, 0)`;
       }
     }
