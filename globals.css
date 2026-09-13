@@ -21,7 +21,7 @@ body {
   background: var(--ink);
   color: var(--paper);
   font-family: Arial, Helvetica, sans-serif;
-  overflow-x: hidden; /* было clip — Safari-фоллбэк */
+  overflow-x: hidden;
   width: 100%;
   max-width: 100%;
   position: relative;
@@ -127,13 +127,13 @@ a { color: inherit; text-decoration: none; }
 .hero {
   position: relative;
   min-height: 100svh;
-  min-height: -webkit-fill-available; /* Safari-фоллбэк */
+  min-height: -webkit-fill-available;
   display: grid;
   grid-template-columns: 54% 46%;
   align-items: center;
   padding: 132px 3.5vw 56px;
   isolation: isolate;
-  overflow: hidden; /* было clip */
+  overflow: hidden;
   --pointer-x: 0;
   --pointer-y: 0;
 }
@@ -577,8 +577,6 @@ a { color: inherit; text-decoration: none; }
 .js .reveal.is-visible { opacity: 1; translate: 0 0; scale: 1; }
 .js .contact .reveal { filter: none !important; }
 
-/* ============ АДАПТИВНОСТЬ ============ */
-
 @media (max-width: 900px) {
   .site-header { height: 78px; grid-template-columns: 1fr auto; padding-inline: 20px; }
   .main-nav { display: none; }
@@ -615,21 +613,20 @@ a { color: inherit; text-decoration: none; }
   .contact-bottom > a { width: min(30vw,220px); }
   .footer-main { grid-template-columns: 1fr 1fr; gap: 38px 60px; }
   .footer-logo { grid-column: 1 / -1; }
-  
-  /* Фиксы горизонтального скролла */
+
   .capability-rail {
     transform: rotate(0deg) scale(1);
     margin: 0;
     width: 100%;
   }
-  
+
   .proof::before { display: none; }
-  
+
   .terrain-canvas {
     inset: 15% 0 3% 0;
     width: 100%;
   }
-  
+
   .hero-glow--one { right: -20vw; }
   .hero-glow--two { left: 10vw; }
 }
@@ -679,8 +676,7 @@ a { color: inherit; text-decoration: none; }
   .footer-logo img { width: 170px; }
   .footer-column nav { grid-template-columns: repeat(2, max-content); gap: 11px 24px; }
   .footer-bottom { min-height: 68px; align-items: flex-start; flex-direction: column; justify-content: flex-end; gap: 12px; }
-  
-  /* Дополнительные фиксы */
+
   .process-card {
     padding-left: 5vw;
     padding-right: 5vw;
