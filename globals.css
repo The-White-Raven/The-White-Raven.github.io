@@ -745,5 +745,5 @@ a { color: inherit; text-decoration: none; }
 
 .footer-copy.is-copied {
   opacity: 1;
-  color: #9cff57; /* цвет "успеха", можно поменять под свою палитру */
+  color: #9cff57; 
 }
